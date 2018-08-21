@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+#page-trim-top {
+	height: 40px;
+    background-color: blue;
+    text-align: center;
+}
+
+h1.title {
+	display: inline;
+}
+
+div.login-signup, div.logout {
+	display: inline;
+	float: right;
+}
+
+div#modal-container {
+	/*display: none;*/
+	display: block;
+	position: absolute;
+    width: 80%;
+    height: 80%;
+    border: 3px solid black;
+}
+
+div#menu-left {
+	float: left;
+	background-color: blue;
+    height: 100vh;
+}
+
+div#menu-left button {
+	width: 120px;
+}
+
+table.table {
+	display: block;
+}
+
+/*div#modal-container.showing {
+	display: block;
+}*/

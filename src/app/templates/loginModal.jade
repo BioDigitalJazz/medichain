@@ -1,0 +1,10 @@
+div.modal-content(ng-if='interface.modal === modals.login')
+	form.navbar-form.navbar-left
+		div.form-group
+			span.input-group-addon#login-form-addon1 Email
+			input.form-control(type='text' placeholder='Email' aria-describedby='login-form-addon1' ng-model='userLogin.email')
+			span.input-group-addon#login-form-addon2 Password
+			input.form-control(type='text' placeholder='Password' aria-describedby='login-form-addon2' ng-model='userLogin.password')
+			button(ng-click='app.userLogin()') Login
+
+

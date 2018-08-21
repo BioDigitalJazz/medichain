@@ -1,0 +1,18 @@
+div#section1
+  table.table
+    thead
+      tr
+        th(scope="col") Name
+        th(scope="col") Data1
+        th(scope="col") Data2
+        th(scope="col") Data3
+        th(scope="col") Data4
+        th(scope="col") Data5
+    tbody
+      tr(ng-repeat='row in sec1.list track by $index')
+        th(scope="row") {{row.name}}
+        td {{row.data1}}
+        td {{row.data2}}
+        td {{row.data3}}
+        td {{row.data4}}
+        td {{row.data5}}

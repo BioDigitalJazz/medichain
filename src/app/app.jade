@@ -1,0 +1,27 @@
+body
+  #page-trim-top
+    h1.title MediChain
+    div.btn-group.login-signup(ng-if='!(userSession && userSession.loggedInUser)')
+      button.btn.btn-primary(ng-click='interface.modal = modals.login') Login
+      button.btn.btn-primary(ng-click='interface.modal = modals.signup') Signup
+      //label.btn.btn-primary(uib-btn-checkbox) Login
+      //label.btn.btn-primary(uib-btn-checkbox) Signup
+  #menu-left
+    .btn-group-vertical(role="group")
+      button.btn.btn-default(type="button" ng-repeat='pageName in pages' ng-click=('state.currentPage = pageName')) {{pageName}}
+  #main-content-wrapper
+    div(ng-if='state.currentPage === pages.sec1')
+      include ./templates/sec1.jade
+    div(ng-if='state.currentPage === pages.sec2')
+      include ./templates/sec2.jade
+    div(ng-if='state.currentPage === pages.sec3')
+      include ./templates/sec3.jade
+
+
+  //#modal-container(ng-if='interface.modal != null')
+    //include ./templates/signupModal.jade
+    //include ./templates/loginModal.jade
+
+  footer
+    #footer-contents-container
+  #page-trim-bottom
