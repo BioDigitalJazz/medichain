@@ -9,9 +9,9 @@ let keyReader = new FileReader();
 let docReader = new FileReader();
 let apiURL = 'http://127.0.0.1/api';
 // let appURL = window.location.origin;
-// let ipfsAPI = require('ipfs-api');
+let ipfsAPI = require('ipfs-api');
 // let ipfsAPI = require('../../node_modules/ipfs-api/src/index.js');
-// let ipfs = ipfsAPI('localhost', '5001');
+let ipfs = ipfsAPI('localhost', '5001');
 
 let privateKey, publicKey;
 
@@ -143,31 +143,31 @@ class AppCtrl {
     }
 
     this.docToBlock = function() {
-      // ipfs.add(cipher, function(err, filesAdded) {
-      //   let file = filesAdded[0];
-      //   $scope.state.docDetails.docLocation = file.path
-      //   $scope.state.docDetails.docHash = file.hash;
-      //   // console.log(file.path);
-      //   console.log(file.hash);
+      ipfs.add(cipher, function(err, filesAdded) {
+        let file = filesAdded[0];
+        $scope.state.docDetails.docLocation = file.path
+        $scope.state.docDetails.docHash = file.hash;
+        // console.log(file.path);
+        console.log(file.hash);
 
-      //   $http({
-      //     method: 'POST',
-      //     url: apiURL + '/documents/new',
-      //     headers: {"Content-Type": "application/json"},
-      //     data: $scope.state.docDetails
-      //   })
-      //   .then(function(response) {
-      //     console.log(response);
-      //     $scope.state.readyForUpload = null;
-      //     $scope.state.uploadSuccess = true;
-      //     setTimeout(function() {
-      //       $scope.state.uploadSuccess = false;
-      //     }, 8000)
-      //   }, function(errorResponse) {
-      //     console.log(errorResponse);
-      //   });
+        $http({
+          method: 'POST',
+          url: apiURL + '/documents/new',
+          headers: {"Content-Type": "application/json"},
+          data: $scope.state.docDetails
+        })
+        .then(function(response) {
+          console.log(response);
+          $scope.state.readyForUpload = null;
+          $scope.state.uploadSuccess = true;
+          setTimeout(function() {
+            $scope.state.uploadSuccess = false;
+          }, 8000)
+        }, function(errorResponse) {
+          console.log(errorResponse);
+        });
 
-      // })
+      })
 
 
       
