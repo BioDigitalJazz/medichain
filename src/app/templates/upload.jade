@@ -1,0 +1,18 @@
+div.alert.alert-danger(ng-if='state.pubKeyString == null') {{"No encryption key loaded.  Go to the Load/Create Key tab."}}
+div(ng-if='state.pubKeyString != null')
+  button.btn.btn-primary(ng-click='app.selectDocument()') Select document for upload
+  div.input-group(ng-if='state.docDetails != null')
+    span.input-group-addon File Description
+    input.form-control(type="text" placeholder="Enter a description" ng-model='state.docDetails.description')
+  div.alert.alert-success(ng-if='state.readyForUpload == true') Ready For Upload
+  button.btn.btn-primary(ng-if='state.readyForUpload == true' ng-click='app.docToBlock()') Upload Document to Blockchain
+  div.alert.alert-success(ng-if='state.uploadSuccess == true') Document Upload Successful
+
+
+
+
+
+
+
+
+

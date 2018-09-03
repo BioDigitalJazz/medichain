@@ -72,6 +72,7 @@ module.exports = function makeWebpackConfig () {
       test: /\.js$/,
       loader: 'babel',
       exclude: /node_modules/
+      // exclude: path.resolve(__dirname, 'node_modules/ipfs-api')
       // exclude: [/node_modules/, path.resolve(__dirname, 'src/app/js/oidc-client.js')]
     }, {
       test: /\.css$/,

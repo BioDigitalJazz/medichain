@@ -1,6 +1,6 @@
 body
   #page-trim-top
-    h1.title MediChain
+    h1.title Pure Health
     div.btn-group.login-signup(ng-if='!(userSession && userSession.loggedInUser)')
       button.btn.btn-primary(ng-click='interface.modal = modals.login') Login
       button.btn.btn-primary(ng-click='interface.modal = modals.signup') Signup
@@ -8,14 +8,28 @@ body
       //label.btn.btn-primary(uib-btn-checkbox) Signup
   #menu-left
     .btn-group-vertical(role="group")
-      button.btn.btn-default(type="button" ng-repeat='pageName in pages' ng-click=('state.currentPage = pageName')) {{pageName}}
+      button.btn.btn-default(type="button" ng-repeat='pageName in pages' ng-click=('app.setPage(pageName)')) {{pageName}}
   #main-content-wrapper
-    div(ng-if='state.currentPage === pages.sec1')
-      include ./templates/sec1.jade
-    div(ng-if='state.currentPage === pages.sec2')
-      include ./templates/sec2.jade
-    div(ng-if='state.currentPage === pages.sec3')
-      include ./templates/sec3.jade
+    div(ng-if='state.currentPage === pages.createKey')
+      include ./templates/createKey.jade
+    div(ng-if='state.currentPage === pages.upload')
+      include ./templates/upload.jade
+    //div(ng-if='state.currentPage === pages.mineBlock')
+      //include ./templates/mineBlock.jade
+    div(ng-if='state.currentPage === pages.viewDocs')
+      include ./templates/viewDocs.jade
+    //div(ng-if='state.currentPage === pages.healthRecords')
+      //include ./templates/healthRecords.jade
+    //div(ng-if='state.currentPage === pages.labRecords')
+      //include ./templates/labRecords.jade
+    //div(ng-if='state.currentPage === pages.appointments')
+      //include ./templates/appointments.jade
+    //div(ng-if='state.currentPage === pages.prescriptions')
+      //include ./templates/prescriptions.jade
+    //div(ng-if='state.currentPage === pages.payments')
+      //include ./templates/payments.jade
+    //div(ng-if='state.currentPage === pages.feedback')
+      //include ./templates/feedback.jade
 
 
   //#modal-container(ng-if='interface.modal != null')

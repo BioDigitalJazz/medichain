@@ -1,0 +1,10 @@
+div#section1
+  table.table
+    thead
+      tr
+        th(scope="col") Description
+        th(scope="col") Nonce
+    tbody
+      tr(ng-repeat='doc in documents track by $index' ng-if='state.pubKeyString === doc.userId')
+        th(scope="row") {{doc.description}}
+        td {{doc.nonce}}
